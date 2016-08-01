@@ -1,0 +1,4 @@
+pass the github urls for embedding in table rows
+Merge the django functions for get/post
+Provide some way to refresh the list of issues 
+github oauth for higher limit of api calls
