@@ -25,7 +25,7 @@
   <div class="container-fluid">
       <form class="form-horizontal">
           <div class="form-group">
-              <input type="text" class="form-control" id="InputLink" placeholder="Github-User/User-Repo">
+              <input type="text" class="form-control" id="InputLink" placeholder="Github-User/User-Repo  for example for github.com/bglads/githublist repo, enter 'bglads/githublist'">
           </div>
           <button type="submit" class="btn btn-primary" onclick="post_to_hk();return false;">Submit</button>
       </form>{% csrf_token %}
@@ -34,9 +34,9 @@
   </body>
 </html>
     <script>
-$(document).ready(function(){
-var csrftoken = $("input[name=csrfmiddlewaretoken]").val();
-});
+    $(document).ready(function(){
+        var csrftoken = $("input[name=csrfmiddlewaretoken]").val();
+    });
 
 
     function post_to_hk(){
@@ -63,16 +63,16 @@ var csrftoken = $("input[name=csrfmiddlewaretoken]").val();
         $.each(obj,function(key,val){
         if(val['type']=='day' &&  val['length'] > 0 ){
         day_hdr=true;
-        $("#table").append('<h4>Last 24hours</h4><div class="table-responsive"><table class="table" id="daily"><thead><tr><th>#</th><th>Issue</th><th>Createdby</th></tr></thead></table></div><hr>');
+        $("#table").append('<h4>Last 24hours</h4><div class="table-responsive"><table class="table" id="daily"><thead><tr><th>#</th><th>Issue</th><th>Opened by</th></tr></thead></table></div><hr>');
             var count=1;
             $.each(val['data'],function(key,data){
             $("#daily").append('<tbody><tr><td>'+count+'</td><td>'+data['title']+'</td><td>'+data['user']+'</td></tr></tbody>');
             count=count+1;
             });
             }
-        if(val['type']=='week' && val['length'] > 0 ){
+        else if(val['type']=='week' && val['length'] > 0 ){
         week_hdr=true;
-        $("#table").append('<h4>Last Week</h4><div class="table-responsive"><table class="table" id="weekly"><thead><tr><th>#</th><th>Issue</th><th>Createdby</th></tr></thead></table></div><hr>');
+        $("#table").append('<h4>Last Week</h4><div class="table-responsive"><table class="table" id="weekly"><thead><tr><th>#</th><th>Issue</th><th>Opened by</th></tr></thead></table></div><hr>');
             var count=1;
             $.each(val['data'],function(key,data){
             $("#weekly").append('<tbody><tr><td>'+count+'</td><td>'+data['title']+'</td><td>'+data['user']+'</td></tr></tbody>');
@@ -91,11 +91,7 @@ var csrftoken = $("input[name=csrfmiddlewaretoken]").val();
                    console.log(exception);
                    alert('Error');
                }
-
-
         });
-
     return true;
-
 }
 </script>

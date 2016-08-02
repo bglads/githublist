@@ -1,4 +1,4 @@
-Displays the recent opened issues from a github repo
+Django App to display the recent opened issues from a github repo
 
 Usage:
 Enter the 'github-user-name/repository-name'
