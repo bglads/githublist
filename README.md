@@ -1,13 +1,14 @@
 Django App to display the recent opened issues from a github repo
 
-Usage:
 Enter the 'github-user-name/repository-name'
 
-Example:
-django/django
+####Example:
+To list open issues of *github.com/django/django* url enter 
+>django/django
 
-Json response from backend
+Json response from backend:
 
+```json
 [
    {
       "data":[ ... ],
@@ -20,7 +21,7 @@ Json response from backend
       "type":"week"
    }
 ]
-
+```
 
 
 Hosted on https://githublist.herokuapp.com/
